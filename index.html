@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <title>jcrop.js DEMO</title>
+        <style>
+            div, h1{
+                padding: 0;
+                margin: 0;
+            }
+            .heading {
+                text-align: center;
+                margin-top: 50px;
+            }
+            .wrap {
+                width: 680px;
+                height: 360px;
+                border: 2px solid #bbb;
+                margin: 30px auto;
+                overflow: hidden;
+                position: relative;
+            }
+            .demo {
+                width: 250px;
+                height: 166px;
+                position: relative;
+                left: 50%;
+                top: 50%;
+                margin-left: -125px;
+                margin-top:  -83px;
+            }
+            .crop-btn {
+                display: inline-block;
+                width: 70px;
+                height: 35px;
+                color: blue;
+                font-size: 16px;
+                background-color: #fff;
+                border-style: solid;
+                border-width: 1px;
+                border-color: blue;
+                position: absolute;
+                right: 20px;
+                bottom: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="heading"><h1>jcrop.js DEMO</h1></div>
+        <div class="wrap">
+            <img class="crop-img demo" src="photo1_MorganSessions.jpeg">
+            <button type="button" class="crop-btn">Crop</button>
+        </div>
+        <div class="heading">
+            <h3>
+                This image is by Morgan Sessions  
+                from <a href="https://download.unsplash.com/photo-1421986527537-888d998adb74">unsplash.com</a>
+            </h3>
+        </div>
+        <script type="text/javascript" src="lib/jquery/jquery-1.11.2.min.js"></script>
+        <script type="text/javascript" src="jcrop-1.0.0/jcrop.js"></script>
+        <script>
+            $(document).on('ready', function(e){
+                $(".crop-img").one("load", function() {
+                    $(this).crop({
+                        // 'confineInWrap': false,
+                        // 'borderRatio': '2',
+                        // 'borderWidth': '100',
+                        // 'borderHeight': '100',
+                        // 'ratio': '0.7',
+                        // 'width': '400',
+                        // 'height': ''
+                    });
+                }).each(function() {
+                    if(this.complete) $(this).load();
+                });
+                $('.crop-btn').on('click', function(e){
+                    var data = $(".crop-img").getCropResult();
+                    alert( JSON.stringify(data) );
+                });
+            });
+        </script>
+    </body>
+</html>
