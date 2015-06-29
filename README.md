@@ -1,0 +1,2 @@
+# jcrop
+crop image file
