@@ -15,21 +15,21 @@
                 margin-top: 50px;
             }
             .wrap {
-                width: 680px;
-                height: 360px;
+                width: 900px;
+                height: 500px;
                 border: 2px solid #bbb;
                 margin: 30px auto;
                 overflow: hidden;
                 position: relative;
             }
             .demo {
-                width: 250px;
-                height: 166px;
-                position: relative;
+                width: 620px;
+                height: 414px;
+                position: absolute;
                 left: 50%;
                 top: 50%;
-                margin-left: -125px;
-                margin-top:  -83px;
+                margin-left: -310px;
+                margin-top:  -207px;
             }
             .crop-btn {
                 display: inline-block;
@@ -53,6 +53,10 @@
             <img class="crop-img demo" src="photo1_MorganSessions.jpeg">
             <button type="button" class="crop-btn">Crop</button>
         </div>
+        <div class="wrap">
+            <img class="demo" src="photo1_MorganSessions.jpeg">
+            <button type="button" class="crop-btn">Crop</button>
+        </div>
         <div class="heading">
             <h3>
                 This image is by Morgan Sessions  
@@ -64,15 +68,7 @@
         <script>
             $(document).on('ready', function(e){
                 $(".crop-img").one("load", function() {
-                    $(this).crop({
-                        // 'confineInWrap': false,
-                        // 'borderRatio': '2',
-                        // 'borderWidth': '100',
-                        // 'borderHeight': '100',
-                        // 'ratio': '0.7',
-                        // 'width': '400',
-                        // 'height': ''
-                    });
+                    $(this).crop();
                 }).each(function() {
                     if(this.complete) $(this).load();
                 });
